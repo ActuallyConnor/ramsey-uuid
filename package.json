@@ -1,16 +1,23 @@
 {
-  "name": "ramsey-uuid",
-  "version": "1.0.0",
-  "description": "",
+  "name": "uuid-ts",
+  "version": "0.0.1",
+  "description": "A TypeScript library that is a 'ramsey/uuid'-like interface for the uuid package",
+  "keywords": [
+    "uuid",
+    "identifier",
+    "guid"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "prepare": "husky install",
-    "static-analysis": "eslint --ext .ts src",
-    "fix-src": "eslint --ext .ts src --fix",
-    "fix-tests": "eslint --ext .ts tests --fix"
+    "lint": "eslint --ext .ts src",
+    "lint-fix": "eslint --ext .ts src --fix"
   },
-  "author": "Connor Smyth",
+  "author": {
+    "name": "Connor Smyth",
+    "email": "connorsmyth@rogers.com"
+  },
   "license": "MIT",
   "dependencies": {
     "uuid": "^8.3.2"
@@ -31,5 +38,13 @@
     "jest": "^27.4.5",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ActuallyConnor/uuid-ts/issues"
+  },
+  "homepage": "https://github.com/ActuallyConnor/uuid-ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ActuallyConnor/uuid-ts"
   }
 }
