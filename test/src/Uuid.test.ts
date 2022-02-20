@@ -1,5 +1,5 @@
 import { Uuid } from '../../src/Uuid';
-import { v4 as uuid4, stringify, parse } from 'uuid';
+import { v4 as uuid4, parse } from 'uuid';
 
 describe('Uuid', () => {
   it('Creates Uuid object from string', () => {
