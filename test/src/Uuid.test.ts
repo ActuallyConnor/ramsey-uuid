@@ -5,7 +5,7 @@ describe('Uuid', () => {
   it('Creates Uuid object from string', () => {
     const uuid = Uuid.fromString('69755997-69c3-4bc6-b475-178d2766a651');
 
-    expect(uuid['uuid']).toEqual(parse('69755997-69c3-4bc6-b475-178d2766a651'));
+    expect(uuid.getUuid()).toEqual(parse('69755997-69c3-4bc6-b475-178d2766a651'));
   });
 
   it('Returns a Uuid string from Uuid object', () => {
@@ -18,7 +18,7 @@ describe('Uuid', () => {
   it('Creates Uuid object from byte string', () => {
     const uuid = Uuid.fromBytes('0x6975599769C34BC6B475178D2766A651');
 
-    expect(uuid['uuid']).toEqual(parse('69755997-69c3-4bc6-b475-178d2766a651'));
+    expect(uuid.getUuid()).toEqual(parse('69755997-69c3-4bc6-b475-178d2766a651'));
   });
 
   it('Returns a Uuid byte string from Uuid object', () => {
