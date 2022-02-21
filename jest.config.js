@@ -1,6 +1,5 @@
-import type {Config} from '@jest/types';
-const config: Config.InitialOptions = {
-  verbose: true,
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+export default {
   preset: 'ts-jest',
   testEnvironment: 'node',
   coverageReporters: [
@@ -9,4 +8,3 @@ const config: Config.InitialOptions = {
     "json-summary"
   ]
 };
-export default config;
