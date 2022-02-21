@@ -17,6 +17,7 @@
     "lint": "eslint --ext .ts src",
     "lint-fix": "eslint --ext .ts src --fix"
   },
+  "type": "module",
   "author": {
     "name": "Connor Smyth",
     "email": "connorsmyth@rogers.com"
