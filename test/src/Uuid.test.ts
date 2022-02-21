@@ -2,10 +2,13 @@ import { Uuid } from '../../src/Uuid';
 import { v4 as uuid4, parse } from 'uuid';
 
 describe('Uuid', () => {
-  it('Creates Uuid object from string', () => {
-    const uuid = Uuid.fromString('69755997-69c3-4bc6-b475-178d2766a651');
+  const byteString = 'iuYiÃKÆ´u\'f¦Q';
+  const hexString = '69755997-69c3-4bc6-b475-178d2766a651';
 
-    expect(uuid.getUuid()).toEqual(parse('69755997-69c3-4bc6-b475-178d2766a651'));
+  it('Creates Uuid object from string', () => {
+    const uuid = Uuid.fromString(hexString);
+
+    expect(uuid.getUuid()).toEqual(parse(hexString));
   });
 
   it('Returns a Uuid string from Uuid object', () => {
@@ -16,15 +19,15 @@ describe('Uuid', () => {
   });
 
   it('Creates Uuid object from byte string', () => {
-    const uuid = Uuid.fromBytes('0x6975599769C34BC6B475178D2766A651');
+    const uuid = Uuid.fromBytes(byteString);
 
-    expect(uuid.getUuid()).toEqual(parse('69755997-69c3-4bc6-b475-178d2766a651'));
+    expect(uuid.getUuid()).toEqual(parse(hexString));
   });
 
   it('Returns a Uuid byte string from Uuid object', () => {
-    const uuid = new Uuid(parse('69755997-69c3-4bc6-b475-178d2766a651'));
+    const uuid = new Uuid(parse(hexString));
 
-    expect(uuid.getBytes()).toEqual('0x6975599769C34BC6B475178D2766A651');
+    expect(uuid.getBytes()).toEqual(byteString);
   });
 
   it('Creates a randomly generated Uuid', () => {
