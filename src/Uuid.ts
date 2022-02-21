@@ -1,6 +1,5 @@
 import { UuidInterface } from './UuidInterface';
 import { v4 as uuid4, parse, stringify } from 'uuid';
-import ArrayLike = jasmine.ArrayLike;
 
 export class Uuid implements UuidInterface
 {
@@ -11,7 +10,12 @@ export class Uuid implements UuidInterface
     this.uuid = uuid;
   }
 
-  public static fromString (uuid: string): Uuid
+  public getUuid (): ArrayLike<number>
+  {
+    return this.uuid;
+  }
+
+  public static fromString (uuid: string): UuidInterface
   {
     return new Uuid(parse(uuid));
   }
@@ -21,7 +25,7 @@ export class Uuid implements UuidInterface
     return stringify(this.uuid);
   }
 
-  public static fromBytes (uuid: string): Uuid
+  public static fromBytes (uuid: string): UuidInterface
   {
     if (uuid.indexOf('0x') === 0) {
       uuid = uuid.substr(2).toLowerCase();
@@ -49,7 +53,7 @@ export class Uuid implements UuidInterface
     return bytes;
   }
 
-  public static uuid4 (): Uuid
+  public static uuid4 (): UuidInterface
   {
     return new Uuid(parse(uuid4()));
   }
