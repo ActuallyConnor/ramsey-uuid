@@ -27,30 +27,32 @@ export class Uuid implements UuidInterface
 
   public static fromBytes (uuid: string): UuidInterface
   {
-    if (uuid.indexOf('0x') === 0) {
-      uuid = uuid.substr(2).toLowerCase();
+    let result = '';
+
+    for (let i = 0; i < uuid.length; i++) {
+      result += uuid.charCodeAt(i).toString(16);
+
+      switch (i) {
+        case 3:
+        case 5:
+        case 7:
+        case 9:
+          result += '-';
+          break;
+      }
     }
 
-    const newUuid = uuid.substr(0, 8)
-      + '-'
-      + uuid.substr(8, 4)
-      + '-'
-      + uuid.substr(12, 4)
-      + '-'
-      + uuid.substr(16, 4)
-      + '-'
-      + uuid.substr(20, 12);
-
-    return new Uuid(parse(newUuid));
+    return new Uuid(parse(result));
   }
 
   public getBytes (): string
   {
-    let bytes = stringify(this.uuid);
-    bytes = bytes.replace(/-/g, '').toUpperCase();
-    bytes = '0x' + bytes;
+    let bytes = '';
+    for (let i = 0; i < this.uuid.length; i++) {
+      bytes += String.fromCharCode(this.uuid[i]);
+    }
 
-    return bytes;
+    return bytes.replace(' ', '');
   }
 
   public static uuid4 (): UuidInterface
