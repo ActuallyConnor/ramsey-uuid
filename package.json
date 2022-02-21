@@ -22,6 +22,7 @@
     "email": "connorsmyth@rogers.com"
   },
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "uuid": "^8.3.2"
   },
