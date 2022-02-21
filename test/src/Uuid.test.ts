@@ -1,5 +1,5 @@
-import { Uuid } from '../../src/Uuid';
-import { v4 as uuid4, parse } from 'uuid';
+const { Uuid } = require('../../build/Uuid');
+const { v4: uuid4, parse } = require('uuid');
 
 describe('Uuid', () => {
   const byteString = 'iuYiÃKÆ´u\'f¦Q';
