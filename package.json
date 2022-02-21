@@ -1,7 +1,7 @@
 {
-  "name": "uuid-ts",
+  "name": "ramsey-uuid",
   "version": "0.0.1",
-  "description": "A TypeScript library that is a 'ramsey/uuid'-like interface for the uuid package",
+  "description": "A TypeScript library that provides a 'ramsey/uuid'-like interface for the uuid package",
   "keywords": [
     "uuid",
     "identifier",
@@ -40,11 +40,11 @@
     "ts-node": "^10.4.0"
   },
   "bugs": {
-    "url": "https://github.com/ActuallyConnor/uuid-ts/issues"
+    "url": "https://github.com/ActuallyConnor/ramsey-uuid/issues"
   },
-  "homepage": "https://github.com/ActuallyConnor/uuid-ts",
+  "homepage": "https://github.com/ActuallyConnor/ramsey-uuid",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ActuallyConnor/uuid-ts"
+    "url": "https://github.com/ActuallyConnor/ramsey-uuid"
   }
 }

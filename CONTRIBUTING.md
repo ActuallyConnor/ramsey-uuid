@@ -10,7 +10,7 @@ code.
 
 You can find help and discussion in the following places:
 
-* GitHub Issues: <https://github.com/ActuallyConnor/uuid-ts/issues>
+* GitHub Issues: <https://github.com/ActuallyConnor/ramsey-uuid/issues>
 
 ## Reporting Bugs
 
@@ -74,7 +74,7 @@ When you do begin working on your feature, here are some guidelines to consider:
   to update the description.
 * Please **write tests** for any new features you add.
 * Please **ensure that tests pass** before submitting your pull request.
-  uuid-ts automatically runs tests for pull requests. However,
+  ramsey-uuid automatically runs tests for pull requests. However,
   running the tests locally will help save time. _Hint: run `npm run test`._
 * **Use topic/feature branches.** Please do not ask to pull from your main branch.
     * For more information, see "[Understanding the GitHub flow][gh-flow]."
@@ -110,7 +110,7 @@ npm ls
 
 ### Static Analysis
 
-This project uses [ESLint](https://eslint.org/) to provide static 
+This project uses [ESLint](https://eslint.org/) to provide static
 analysis of PHP code.
 
 ESLint will run static analysis checks before committing.
@@ -139,7 +139,7 @@ npm run test
 CaptainHook will automatically run all tests before pushing to the remote
 repository.
 
-[github]: https://github.com/ActuallyConnor/uuid-ts
-[issues]: https://github.com/ActuallyConnor/uuid-ts/issues
-[pull requests]: https://github.com/ActuallyConnor/uuid-ts/pulls
+[github]: https://github.com/ActuallyConnor/ramsey-uuid
+[issues]: https://github.com/ActuallyConnor/ramsey-uuid/issues
+[pull requests]: https://github.com/ActuallyConnor/ramsey-uuid/pulls
 [gh-flow]: https://guides.github.com/introduction/flow/
