@@ -25,6 +25,11 @@ export class Uuid implements UuidInterface
     return stringify(this.uuid);
   }
 
+  public toHex (): string
+  {
+    return stringify(this.uuid).replace(/-/g, '').toUpperCase();
+  }
+
   public static fromBytes (uuid: string): UuidInterface
   {
     let result = '';

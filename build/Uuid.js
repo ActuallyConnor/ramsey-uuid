@@ -15,6 +15,9 @@ var Uuid = /** @class */ (function () {
     Uuid.prototype.toString = function () {
         return (0, uuid_1.stringify)(this.uuid);
     };
+    Uuid.prototype.toHex = function () {
+        return (0, uuid_1.stringify)(this.uuid).replace(/-/g, '').toUpperCase();
+    };
     Uuid.fromBytes = function (uuid) {
         var result = '';
         for (var i = 0; i < uuid.length; i++) {
