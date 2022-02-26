@@ -2,8 +2,8 @@ const { Uuid } = require('../../build/Uuid');
 const { v4: uuid4, parse } = require('uuid');
 
 describe('Uuid', () => {
-  const byteString = 'iuYiÃKÆ´u\'f¦Q';
-  const hexString = '69755997-69c3-4bc6-b475-178d2766a651';
+  const byteString = 'acCäügF¥ÜsÃ?4'
+  const hexString = '616343e4-fc67-46a5-98dc-73c39c873f34';
 
   it('Creates Uuid object from string', () => {
     const uuid = Uuid.fromString(hexString);
