@@ -1,6 +1,6 @@
 {
   "name": "ramsey-uuid",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A JavaScript library that provides a 'ramsey/uuid'-like interface for the uuid package",
   "keywords": [
     "uuid",
