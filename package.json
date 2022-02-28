@@ -5,7 +5,8 @@
   "keywords": [
     "uuid",
     "identifier",
-    "guid"
+    "guid",
+    "rfc4122"
   ],
   "files": [
     "dist",
@@ -17,12 +18,17 @@
     ".": {
       "node": {
         "module": "./dist/esm-node/index.js",
-        "require": "./dist/index.js"
-      }
+        "require": "./dist/index.js",
+        "import": "./wrapper.mjs"
+      },
+      "default": "./dist/esm-browser/index.js"
     },
     "./package.json": "./package.json"
   },
   "module": "./dist/esm-node/index.js",
+  "browser": {
+    "./dist/esm-node/index.js": "./dist/esm-browser/index.js"
+  },
   "scripts": {
     "test": "jest",
     "prepare": "husky install",
@@ -39,6 +45,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/cli": "7.11.6",
     "@types/jest": "^27.0.3",
     "@types/node": "^17.0.2",
     "@types/uuid": "^8.3.4",
