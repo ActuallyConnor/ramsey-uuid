@@ -8,15 +8,27 @@
     "guid"
   ],
   "files": [
-    "build"
+    "dist",
+    "LICENSE",
+    "README.md"
   ],
-  "main": "build/Uuid.js",
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "node": {
+        "module": "./dist/esm-node/index.js",
+        "require": "./dist/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "module": "./dist/esm-node/index.js",
   "scripts": {
     "test": "jest",
     "prepare": "husky install",
     "lint": "eslint --ext .ts src",
     "lint-fix": "eslint --ext .ts src --fix",
-    "build": "tsc src/Uuid.ts --outDir build"
+    "build": "./scripts/build.sh"
   },
   "author": {
     "name": "Connor Smyth",
