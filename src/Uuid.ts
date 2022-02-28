@@ -1,5 +1,5 @@
 import { UuidInterface } from './UuidInterface';
-import { v4 as uuid4, parse, stringify } from 'uuid';
+import { v4, parse, stringify } from 'uuid';
 
 export class Uuid implements UuidInterface
 {
@@ -62,6 +62,6 @@ export class Uuid implements UuidInterface
 
   public static uuid4 (): UuidInterface
   {
-    return new Uuid(parse(uuid4()));
+    return new Uuid(parse(v4()));
   }
 }
