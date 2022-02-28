@@ -1,6 +1,6 @@
 {
   "name": "ramsey-uuid",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A TypeScript library that provides a 'ramsey/uuid'-like interface for the uuid package",
   "keywords": [
     "uuid",
