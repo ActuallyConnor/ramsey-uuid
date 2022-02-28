@@ -4,5 +4,7 @@ export interface UuidInterface
 
   toString (): string;
 
+  toHex (): string;
+
   getBytes (): string;
 }
