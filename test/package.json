@@ -1,0 +1,7 @@
+{
+  "name": "ramsey-uuid-test",
+  "version": "1.0.0",
+  "dependencies": {
+    "ramsey-uuid": "file:.."
+  }
+}

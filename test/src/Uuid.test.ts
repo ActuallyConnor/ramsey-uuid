@@ -1,4 +1,4 @@
-const { Uuid } = require('../../build/Uuid');
+const { Uuid } = require('ramsey-uuid');
 const { v4: uuid4, parse } = require('uuid');
 
 describe('Uuid', () => {
