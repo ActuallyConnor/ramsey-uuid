@@ -11,14 +11,150 @@ This project adheres to a [code of conduct](CODE_OF_CONDUCT.md).
 By participating in this project and its community, you are expected to
 uphold this code.
 
-## Installation
+## Quickstart
 
-The preferred method of installation is via [npm][]. Run the following
-command to install the package and add it as a dependency to your project's
-`package.json`
-
+1. Install
 ```bash
 npm i --save ramsey-uuid
+```
+
+2. Generate a UUID (ES6 module syntax)
+```javascript
+import { Uuid } from 'ramsey-uuid';
+const uuid = Uuid.uuid4();
+```
+
+... or using CommonJS syntax:
+```javascript
+const { Uuid } = require('ramsey-uuid');
+const uuid = Uuid.uuid4();
+```
+
+## API Summary
+
+### getUuid()
+
+Returns the array of bytes of the UUID
+
+|           |                                          |
+| --------- | ---------------------------------------- |
+| _returns_ | `Uint8Array[16]`                         |
+| _throws_  | `TypeError` if `str` is not a valid UUID |
+
+Example:
+```javascript
+import { Uuid } from 'ramsey-uuid';
+
+const uuid = Uuid.uuid4();
+const byteArray = uuid.getUuid();
+```
+
+### fromString(str)
+
+Convert a UUID string to array of bytes
+
+|           |                                          |
+| --------- | ---------------------------------------- |
+| `str`     | A valid UUID `String`                    |
+| _returns_ | `Uint8Array[16]`                         |
+| _throws_  | `TypeError` if `str` is not a valid UUID |
+
+Example:
+```javascript
+import { Uuid } from 'ramsey-uuid';
+
+const uuid = Uuid.fromString('6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b');
+```
+
+### toString()
+
+Convert array of bytes to UUID string
+
+|                |                                                                              |
+| -------------- | ---------------------------------------------------------------------------- |
+| _returns_      | `String`                                                                     |
+| _throws_       | `TypeError` if a valid UUID string cannot be generated                       |
+
+Example:
+```javascript
+import { Uuid } from 'ramsey-uuid';
+
+const uuid = Uuid.uuid4();
+uuid.toString(); // ⇨ '6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b'
+```
+
+### toHex
+
+Convert array of bytes to UUID hexadecimal string
+
+|                |                                                                              |
+| -------------- | ---------------------------------------------------------------------------- |
+| _returns_      | `String`                                                                     |
+| _throws_       | `TypeError` if a valid UUID string cannot be generated                       |
+
+Example:
+```javascript
+import { Uuid } from 'ramsey-uuid';
+
+const uuid = Uuid.uuid4();
+uuid.toHex(); // ⇨ '6EC0BD7F11C043DA975E2A8AD9EBAE0B'
+```
+
+### fromBytes(str)
+
+Convert a UUID byte string to array of bytes
+
+|           |                                          |
+| --------- | ---------------------------------------- |
+| `str`     | A valid UUID byte string `String`
+| _returns_ | `Uint8Array[16]`                         |
+| _throws_  | `TypeError` if `str` is not a valid UUID |
+
+Example:
+```javascript
+import { Uuid } from 'ramsey-uuid';
+
+const uuid = Uuid.fromString('acCäügF¥ÜsÃ?4');
+```
+
+### getBytes()
+
+Convert an array of bytes to a binary string representation of the UUID
+
+|                |                                                                              |
+| -------------- | ---------------------------------------------------------------------------- |
+| _returns_      | `String`                                                                     |
+| _throws_       | `TypeError` if a valid UUID string cannot be generated                       |
+
+Example:
+```javascript
+import { Uuid } from 'ramsey-uuid';
+
+const uuid = Uuid.uuid4();
+uuid.getBytes(); // ⇨ 'acCäügF¥ÜsÃ?4'
+```
+
+## Use in Database - MySQL
+
+The recommended use for saving UUID values in the database would be to create a `BINARY(16)` column in the database.
+When persisting the UUIDs you can `UNHEX` the hexadecimal representation of the UUID.
+
+### TypeORM
+```javascript
+await this.model
+.createQueryBuilder()
+.insert()
+.into(Table)
+.values({
+  uuid: () => `UNHEX('${Uuid.uuid4().toHex()}')`,
+})
+.execute();
+```
+
+### MySQL
+```sql
+INSERT INTO `ActivityDefinition` (`uuid`)
+VALUES('UNHEX("616343E4FC6746A598DC73C39C873F34")');
 ```
 
 ## Contributing
