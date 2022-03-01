@@ -1,5 +1,5 @@
-const { Uuid } = require('@actually_connor/uuid');
-const { v4: uuid4, parse } = require('uuid');
+import { Uuid } from '../src';
+import { v4, parse } from 'uuid';
 
 describe('Uuid', () => {
   const byteString = 'acCäügF¥ÜsÃ?4';
@@ -13,7 +13,7 @@ describe('Uuid', () => {
   });
 
   it('Returns a Uuid string from Uuid object', () => {
-    const uuidString = uuid4();
+    const uuidString = v4();
     const uuid = new Uuid(parse(uuidString));
 
     expect(uuid.toString()).toEqual(uuidString);

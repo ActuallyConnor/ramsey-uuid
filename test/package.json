@@ -1,7 +1,0 @@
-{
-  "name": "@actually_connor/uuid-test",
-  "version": "1.0.0",
-  "dependencies": {
-    "@actually_connor/uuid": "file:.."
-  }
-}
