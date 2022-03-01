@@ -1,10 +1,10 @@
-<h1 align="center">ramsey-uuid</h1>
+<h1 align="center">@actually_connor/uuid</h1>
 
 <p align="center">
-  <strong>A TypeScript library that provides a 'ramsey/uuid'-like interface for the uuid package.</strong>
+  <strong>A JavaScript library that provides a 'ramsey/uuid'-like interface for the uuid package.</strong>
 </p>
 
-ramsey-uuid is a TypeScript library for generating and working with universally unique
+@actually_connor/uuid is a JavaScript library for generating and working with universally unique
 identifiers (UUIDs). It provides a [ramsey/uuid][ramseyuuid]-like interface to the [uuid][] package that
 
 This project adheres to a [code of conduct](CODE_OF_CONDUCT.md).
@@ -15,18 +15,18 @@ uphold this code.
 
 1. Install
 ```bash
-npm i --save ramsey-uuid
+npm i --save @actually_connor/uuid
 ```
 
 2. Generate a UUID (ES6 module syntax)
 ```javascript
-import { Uuid } from 'ramsey-uuid';
+import { Uuid } from '@actually_connor/uuid';
 const uuid = Uuid.uuid4();
 ```
 
 ... or using CommonJS syntax:
 ```javascript
-const { Uuid } = require('ramsey-uuid');
+const { Uuid } = require('@actually_connor/uuid');
 const uuid = Uuid.uuid4();
 ```
 
@@ -43,7 +43,7 @@ Returns the array of bytes of the UUID
 
 Example:
 ```javascript
-import { Uuid } from 'ramsey-uuid';
+import { Uuid } from '@actually_connor/uuid';
 
 const uuid = Uuid.uuid4();
 const byteArray = uuid.getUuid();
@@ -61,7 +61,7 @@ Convert a UUID string to array of bytes
 
 Example:
 ```javascript
-import { Uuid } from 'ramsey-uuid';
+import { Uuid } from '@actually_connor/uuid';
 
 const uuid = Uuid.fromString('6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b');
 ```
@@ -77,7 +77,7 @@ Convert array of bytes to UUID string
 
 Example:
 ```javascript
-import { Uuid } from 'ramsey-uuid';
+import { Uuid } from '@actually_connor/uuid';
 
 const uuid = Uuid.uuid4();
 uuid.toString(); // ⇨ '6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b'
@@ -94,7 +94,7 @@ Convert array of bytes to UUID hexadecimal string
 
 Example:
 ```javascript
-import { Uuid } from 'ramsey-uuid';
+import { Uuid } from '@actually_connor/uuid';
 
 const uuid = Uuid.uuid4();
 uuid.toHex(); // ⇨ '6EC0BD7F11C043DA975E2A8AD9EBAE0B'
@@ -112,7 +112,7 @@ Convert a UUID byte string to array of bytes
 
 Example:
 ```javascript
-import { Uuid } from 'ramsey-uuid';
+import { Uuid } from '@actually_connor/uuid';
 
 const uuid = Uuid.fromString('acCäügF¥ÜsÃ?4');
 ```
@@ -128,7 +128,7 @@ Convert an array of bytes to a binary string representation of the UUID
 
 Example:
 ```javascript
-import { Uuid } from 'ramsey-uuid';
+import { Uuid } from '@actually_connor/uuid';
 
 const uuid = Uuid.uuid4();
 uuid.getBytes(); // ⇨ 'acCäügF¥ÜsÃ?4'
@@ -164,7 +164,7 @@ Contributions are welcome! To contribute, please familiarize yourself with
 
 ## Copyright and License
 
-The ramsey-uuid library is copyright © [Connor Smyth](https://connorsmyth.com) and
+The @actually_connor/uuid library is copyright © [Connor Smyth](https://connorsmyth.com) and
 licensed for use under the MIT License (MIT). Please see [LICENSE][] for more
 information.
 
@@ -173,5 +173,5 @@ information.
 [conduct]: https://github.com/ramsey/uuid/blob/main/CODE_OF_CONDUCT.md
 [ramseyuuid]: https://github.com/ramsey/uuid
 [npm]: https://www.npmjs.com/
-[contributing.md]: https://github.com/ActuallyConnor/ramsey-uuid/blob/main/CONTRIBUTING.md
-[license]: https://github.com/ActuallyConnor/ramsey-uuid/blob/main/LICENSE
+[contributing.md]: https://github.com/ActuallyConnor/uuid/blob/main/CONTRIBUTING.md
+[license]: https://github.com/ActuallyConnor/uuid/blob/main/LICENSE

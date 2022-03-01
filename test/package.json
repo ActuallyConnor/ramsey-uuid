@@ -1,7 +1,7 @@
 {
-  "name": "ramsey-uuid-test",
+  "name": "@actually_connor/uuid-test",
   "version": "1.0.0",
   "dependencies": {
-    "ramsey-uuid": "file:.."
+    "@actually_connor/uuid": "file:.."
   }
 }
