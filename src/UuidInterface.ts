@@ -23,7 +23,7 @@ export interface UuidInterface
    *
    * @return string
    */
-  toHex (): string;
+  getHex (): string;
 
   /**
    * Returns the binary string representation of the UUID
