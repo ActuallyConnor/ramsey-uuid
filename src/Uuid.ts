@@ -1,5 +1,5 @@
 import { UuidInterface } from './UuidInterface';
-import { v4, parse, stringify } from 'uuid';
+import { v4, parse, stringify, validate } from 'uuid';
 
 export class Uuid implements UuidInterface
 {
@@ -63,5 +63,17 @@ export class Uuid implements UuidInterface
   public static uuid4 (): UuidInterface
   {
     return new Uuid(parse(v4()));
+  }
+
+  /**
+   * Returns true if the provided string is a valid UUID
+   *
+   * @param uuid A string to validate as a UUID
+   *
+   * @return boolean
+   */
+  public static isValid (uuid: string): boolean
+  {
+    return validate(uuid);
   }
 }
