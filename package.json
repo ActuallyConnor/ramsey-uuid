@@ -35,7 +35,7 @@
     "lint": "eslint --ext .ts src",
     "lint-fix": "eslint --ext .ts src --fix",
     "build": "./scripts/build.sh",
-    "docs": ""
+    "docs": "./scripts/docs.sh"
   },
   "author": {
     "name": "Connor Smyth",

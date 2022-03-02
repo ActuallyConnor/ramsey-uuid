@@ -299,7 +299,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line58">line 58</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line64">line 64</a>
     </li></ul></dd>
     
 
@@ -437,7 +437,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line36">line 36</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -579,7 +579,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line98">line 98</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line106">line 106</a>
     </li></ul></dd>
     
 
@@ -677,7 +677,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line88">line 88</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line96">line 96</a>
     </li></ul></dd>
     
 
@@ -723,19 +723,73 @@ Uuid.uuid4();
     
 
     
-    <h4 class="name" id="compareTo"><span class="type-signature"></span>compareTo<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="compareTo"><span class="type-signature"></span>compareTo<span class="signature">(other)</span><span class="type-signature"></span></h4>
     
 
     
 
 
 
+<div class="description">
+    Returns -1, 0, or 1 if the UUID is less than, equal to, or greater than the other UUID
+
+The first of two UUIDs is greater than the second if the most significant field in which the UUIDs differ
+is greater for the first UUID.
+
+* Q. What's the value of being able to sort UUIDs?
+* A. Use them as keys in a B-Tree or similar mapping.
+</div>
 
 
 
 
 
 
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>other</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The UUID to compare</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -771,7 +825,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line113">line 113</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line137">line 137</a>
     </li></ul></dd>
     
 
@@ -796,6 +850,16 @@ Uuid.uuid4();
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    number -1, 0, or 1 if the UUID is less than, equal to, or greater than the other
+</div>
+
+
+
+    
 
 
 
@@ -807,19 +871,70 @@ Uuid.uuid4();
     
 
     
-    <h4 class="name" id="equals"><span class="type-signature"></span>equals<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="equals"><span class="type-signature"></span>equals<span class="signature">(other)</span><span class="type-signature"></span></h4>
     
 
     
 
 
 
+<div class="description">
+    Returns true if the UUID is equal to the provided object
+
+The result is true if and only if the argument is not null, is a UUID object, has the same variant, and contains
+the same value, bit for bit, as the UUID.
+</div>
 
 
 
 
 
 
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>other</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object to test for equality with this UUID</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -855,7 +970,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line104">line 104</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line119">line 119</a>
     </li></ul></dd>
     
 
@@ -880,6 +995,16 @@ Uuid.uuid4();
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    boolean True if the other object is equal to this UUID
+</div>
+
+
+
+    
 
 
 
@@ -898,6 +1023,10 @@ Uuid.uuid4();
 
 
 
+<div class="description">
+    Returns the binary string representation of the UUID
+</div>
+
 
 
 
@@ -939,7 +1068,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line76">line 76</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line84">line 84</a>
     </li></ul></dd>
     
 
@@ -964,6 +1093,16 @@ Uuid.uuid4();
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    string
+</div>
+
+
+
+    
 
 
 
@@ -982,6 +1121,10 @@ Uuid.uuid4();
 
 
 
+<div class="description">
+    Returns the hexadecimal representation of the UUID
+</div>
+
 
 
 
@@ -1023,7 +1166,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line48">line 48</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -1048,6 +1191,16 @@ Uuid.uuid4();
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    string
+</div>
+
+
+
+    
 
 
 
@@ -1066,6 +1219,10 @@ Uuid.uuid4();
 
 
 
+<div class="description">
+    Returns the Array-like collection of 16 values (starting from offset) between 0-255
+</div>
+
 
 
 
@@ -1107,7 +1264,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line27">line 27</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -1132,6 +1289,16 @@ Uuid.uuid4();
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    ArrayLike<number>
+</div>
+
+
+
+    
 
 
 
@@ -1150,6 +1317,10 @@ Uuid.uuid4();
 
 
 
+<div class="description">
+    Returns the string standard representation of the UUID
+</div>
+
 
 
 
@@ -1191,7 +1362,7 @@ Uuid.uuid4();
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line42">line 42</a>
+        <a href="Uuid.js.html">Uuid.js</a>, <a href="Uuid.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -1216,6 +1387,16 @@ Uuid.uuid4();
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    string
+</div>
+
+
+
+    
 
 
 
@@ -1243,7 +1424,7 @@ Uuid.uuid4();
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Wed Mar 02 2022 15:00:31 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Wed Mar 02 2022 15:21:53 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

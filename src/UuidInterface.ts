@@ -28,7 +28,8 @@ export interface UuidInterface
   /**
    * Returns true if the UUID is equal to the provided object
    *
-   * The result is true if and only if the argument is not null, is a UUID object, has the same variant, and contains the same value, bit for bit, as the UUID.
+   * The result is true if and only if the argument is not null, is a UUID object, has the same variant, and contains
+   * the same value, bit for bit, as the UUID.
    *
    * @param other An object to test for equality with this UUID
    *
