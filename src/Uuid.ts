@@ -1,41 +1,77 @@
 import { UuidInterface } from './UuidInterface';
 import { v4, parse, stringify, validate } from 'uuid';
 
+/**
+ * Uuid provides constants and static methods for working with and generating UUIDs
+ */
 export class Uuid implements UuidInterface
 {
   private readonly uuid: ArrayLike<number>;
 
+  /**
+   * Creates a universally unique identifier (UUID) from an array of fields
+   *
+   * Unless you're making advanced use of this library to generate identifiers that deviate RFC 4122, you
+   * probably do not want to instantiate a UUID directly. Use the static methods, instead:
+   *
+   * import { Uuid } from '@actually_connor/uuid';
+   * Uuid.uuid4();
+   *
+   * @param uuid The Array-like collection of 16 values (starting from offset) between 0-255
+   */
   public constructor (uuid: ArrayLike<number>)
   {
     this.uuid = uuid;
   }
 
+  /**
+   * @inheritDoc
+   */
   public getUuid (): ArrayLike<number>
   {
     return this.uuid;
   }
 
+  /**
+   *
+   * @param uuid
+   *
+   * @return UuidInterface
+   */
   public static fromString (uuid: string): UuidInterface
   {
     return new Uuid(parse(uuid));
   }
 
+  /**
+   * @inheritDoc
+   */
   public toString (): string
   {
     return stringify(this.uuid);
   }
 
+  /**
+   * @inheritDoc
+   */
   public toHex (): string
   {
     return stringify(this.uuid).replace(/-/g, '').toUpperCase();
   }
 
-  public static fromBytes (uuid: string): UuidInterface
+  /**
+   * Creates a UUID from a byte string
+   *
+   * @param bytes A binary string
+   *
+   * @return UuidInterface A UuidInterface instance created from a binary string representation
+   */
+  public static fromBytes (bytes: string): UuidInterface
   {
     let result = '';
 
-    for (let i = 0; i < uuid.length; i++) {
-      result += uuid.charCodeAt(i).toString(16);
+    for (let i = 0; i < bytes.length; i++) {
+      result += bytes.charCodeAt(i).toString(16);
 
       switch (i) {
         case 3:
@@ -50,6 +86,9 @@ export class Uuid implements UuidInterface
     return new Uuid(parse(result));
   }
 
+  /**
+   * @inheritDoc
+   */
   public getBytes (): string
   {
     let bytes = '';
@@ -60,6 +99,11 @@ export class Uuid implements UuidInterface
     return bytes.replace(' ', '');
   }
 
+  /**
+   * Returns a version 4 (random) UUID
+   *
+   * @return UuidInterface A UuidInterface instance that represents a version 4 UUID
+   */
   public static uuid4 (): UuidInterface
   {
     return new Uuid(parse(v4()));
