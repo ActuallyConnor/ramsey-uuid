@@ -18,7 +18,7 @@ export class Uuid implements UuidInterface
    * import { Uuid } from '@actually_connor/uuid';
    * Uuid.uuid4();
    *
-   * @param uuid The Array-like collection of 16 values (starting from offset) between 0-255
+   * @param {ArrayLike<number>} uuid The Array-like collection of 16 values (starting from offset) between 0-255
    */
   public constructor (uuid: ArrayLike<number>)
   {
@@ -28,7 +28,7 @@ export class Uuid implements UuidInterface
   /**
    * Returns the Array-like collection of 16 values (starting from offset) between 0-255
    *
-   * @return ArrayLike<number>
+   * @return {ArrayLike<number>}
    */
   public getUuid (): ArrayLike<number>
   {
@@ -36,10 +36,11 @@ export class Uuid implements UuidInterface
   }
 
   /**
+   * Creates a UUID from the string standard representation
    *
-   * @param uuid
+   * @param {string} uuid A hexadecimal string
    *
-   * @return UuidInterface
+   * @return {UuidInterface} A UuidInterface instance created from a hexadecimal string representation
    */
   public static fromString (uuid: string): UuidInterface
   {
@@ -49,7 +50,7 @@ export class Uuid implements UuidInterface
   /**
    * Returns the string standard representation of the UUID
    *
-   * @return string
+   * @return {string}
    */
   public toString (): string
   {
@@ -59,7 +60,7 @@ export class Uuid implements UuidInterface
   /**
    * Returns the hexadecimal representation of the UUID
    *
-   * @return string
+   * @return {string}
    */
   public getHex (): string
   {
@@ -69,9 +70,9 @@ export class Uuid implements UuidInterface
   /**
    * Creates a UUID from a byte string
    *
-   * @param bytes A binary string
+   * @param {string} bytes A binary string
    *
-   * @return UuidInterface A UuidInterface instance created from a binary string representation
+   * @return {UuidInterface} A UuidInterface instance created from a binary string representation
    */
   public static fromBytes (bytes: string): UuidInterface
   {
@@ -96,7 +97,7 @@ export class Uuid implements UuidInterface
   /**
    * Returns the binary string representation of the UUID
    *
-   * @return string
+   * @return {string}
    */
   public getBytes (): string
   {
@@ -111,7 +112,7 @@ export class Uuid implements UuidInterface
   /**
    * Returns a version 4 (random) UUID
    *
-   * @return UuidInterface A UuidInterface instance that represents a version 4 UUID
+   * @return {UuidInterface} A UuidInterface instance that represents a version 4 UUID
    */
   public static uuid4 (): UuidInterface
   {
@@ -121,9 +122,9 @@ export class Uuid implements UuidInterface
   /**
    * Returns true if the provided string is a valid UUID
    *
-   * @param uuid A string to validate as a UUID
+   * @param {string} uuid A string to validate as a UUID
    *
-   * @return boolean
+   * @return {boolean}
    */
   public static isValid (uuid: string): boolean
   {
@@ -136,9 +137,9 @@ export class Uuid implements UuidInterface
    * The result is true if and only if the argument is not null, is a UUID object, has the same variant, and contains
    * the same value, bit for bit, as the UUID.
    *
-   * @param other An object to test for equality with this UUID
+   * @param {object|null} other An object to test for equality with this UUID
    *
-   * @return boolean True if the other object is equal to this UUID
+   * @return {boolean} True if the other object is equal to this UUID
    */
   public equals (other: object | null): boolean
   {
@@ -157,9 +158,9 @@ export class Uuid implements UuidInterface
    *
    * * Q. What's the value of being able to sort UUIDs?
    * * A. Use them as keys in a B-Tree or similar mapping.
-   * @param other The UUID to compare
+   * @param {UuidInterface} other The UUID to compare
    *
-   * @return number -1, 0, or 1 if the UUID is less than, equal to, or greater than the other
+   * @return {number} -1, 0, or 1 if the UUID is less than, equal to, or greater than the other
    */
   public compareTo (other: UuidInterface): number
   {
