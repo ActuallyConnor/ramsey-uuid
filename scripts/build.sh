@@ -9,11 +9,13 @@ BUILD_DIR="$ROOT/build"
 DIST_DIR="$ROOT/dist"
 
 # Clean up output dir
+rm -rf "$BUILD_DIR"
+mkdir -p "$BUILD_DIR"
 rm -rf "$DIST_DIR"
 mkdir -p "$DIST_DIR"
 
 ## Transpile CommonJS versions of files
-tsc
+tsc src/index.ts src/Uuid.ts src/UuidInterface.ts --module commonjs --target es2020 --outDir "$BUILD_DIR"
 
 # Transpile CommonJS versions of files
 babel --env-name commonjs "$BUILD_DIR" --source-root src --out-dir "$DIST_DIR" --copy-files --quiet

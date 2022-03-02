@@ -54,7 +54,7 @@ export class Uuid implements UuidInterface
   /**
    * @inheritDoc
    */
-  public toHex (): string
+  public getHex (): string
   {
     return stringify(this.uuid).replace(/-/g, '').toUpperCase();
   }

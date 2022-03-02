@@ -40,7 +40,7 @@ describe('Uuid', () => {
   it('Returns a hexadecimal string', () => {
     const uuid = Uuid.fromString(uuidString);
 
-    expect(uuid.toHex()).toEqual(hexString);
+    expect(uuid.getHex()).toEqual(hexString);
   });
 
   it('Validates a UUID string', () => {
