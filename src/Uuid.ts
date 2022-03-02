@@ -1,5 +1,6 @@
 import { UuidInterface } from './UuidInterface';
 import { v4, parse, stringify, validate } from 'uuid';
+import { strcmp } from './util';
 
 /**
  * Uuid provides constants and static methods for working with and generating UUIDs
@@ -119,5 +120,35 @@ export class Uuid implements UuidInterface
   public static isValid (uuid: string): boolean
   {
     return validate(uuid);
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public equals (other: object | null): boolean
+  {
+    if (!(other instanceof Uuid)) {
+      return false;
+    }
+
+    return this.compareTo(other) === 0;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public compareTo (other: UuidInterface): number
+  {
+    const compare = strcmp(this.toString(), other.toString());
+
+    if (compare < 0) {
+      return -1;
+    }
+
+    if (compare > 0) {
+      return 1;
+    }
+
+    return 0;
   }
 }

@@ -45,5 +45,60 @@ describe('Uuid', () => {
 
   it('Validates a UUID string', () => {
     expect(Uuid.isValid(uuidString)).toBeTruthy();
-  })
+  });
+
+  it('Tests compareTo()', () => {
+    // uuid1 and uuid2 are identical
+    const uuid1 = Uuid.fromString('ff6f8cb0-c57d-11e1-9b21-0800200c9a66');
+    const uuid2 = Uuid.fromString('ff6f8cb0-c57d-11e1-9b21-0800200c9a66');
+
+    // The next three UUIDs are used for comparing msb and lsb in
+    // the compareTo() method
+
+    const uuid3 = Uuid.fromString('44cca71e-d13d-11e1-a959-c8bcc8a476f4');
+
+    // msb are greater than $uuid3, lsb are equal to those in $uuid3
+    const uuid4 = Uuid.fromString('44cca71e-d13d-11e2-a959-c8bcc8a476f4');
+
+    // msb are equal to those in $uuid3, lsb are less than in $uuid3
+    const uuid5 = Uuid.fromString('44cca71e-d13d-11e1-a959-c8bcc8a476f3');
+
+    expect(uuid1.compareTo(uuid2)).toEqual(0);
+    expect(uuid2.compareTo(uuid1)).toEqual(0);
+    expect(uuid3.compareTo(uuid4)).toEqual(-1);
+    expect(uuid4.compareTo(uuid3)).toEqual(1);
+    expect(uuid5.compareTo(uuid3)).toEqual(-1);
+    expect(uuid3.compareTo(uuid5)).toEqual(1);
+  });
+
+  it('Tests compareTo() returns 0 when different cases', () => {
+    const uuidString = 'ff6f8cb0-c57d-11e1-9b21-0800200c9a66';
+    // uuid1 and uuid2 are identical
+    const uuid1 = Uuid.fromString(uuidString);
+    const uuid2 = Uuid.fromString(uuidString.toUpperCase());
+
+    expect(uuid1.compareTo(uuid2)).toEqual(0);
+    expect(uuid2.compareTo(uuid1)).toEqual(0);
+  });
+
+  it('Tests equals()', () => {
+    // uuid1 and uuid2 are identical
+    const uuid1 = Uuid.fromString('ff6f8cb0-c57d-11e1-9b21-0800200c9a66');
+    const uuid2 = Uuid.fromString('ff6f8cb0-c57d-11e1-9b21-0800200c9a66');
+    const uuid3 = Uuid.uuid4();
+
+    expect(uuid1.equals(uuid2)).toBeTruthy();
+    expect(uuid1.equals(uuid3)).toBeFalsy();
+    expect(uuid1.equals({})).toBeFalsy();
+  });
+
+  it('Tests equals() returns true when different cases', () => {
+    const uuidString = 'ff6f8cb0-c57d-11e1-9b21-0800200c9a66';
+    // uuid1 and uuid2 are identical
+    const uuid1 = Uuid.fromString(uuidString);
+    const uuid2 = Uuid.fromString(uuidString.toUpperCase());
+
+    expect(uuid1.equals(uuid2)).toBeTruthy();
+    expect(uuid2.equals(uuid1)).toBeTruthy();
+  });
 });
