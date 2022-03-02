@@ -83,7 +83,7 @@ const uuid = Uuid.uuid4();
 uuid.toString(); // ⇨ '6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b'
 ```
 
-### toHex
+### getHex
 
 Convert array of bytes to UUID hexadecimal string
 
@@ -97,7 +97,7 @@ Example:
 import { Uuid } from '@actually_connor/uuid';
 
 const uuid = Uuid.uuid4();
-uuid.toHex(); // ⇨ '6EC0BD7F11C043DA975E2A8AD9EBAE0B'
+uuid.getHex(); // ⇨ '6EC0BD7F11C043DA975E2A8AD9EBAE0B'
 ```
 
 ### fromBytes(str)
