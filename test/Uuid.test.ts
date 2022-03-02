@@ -42,4 +42,8 @@ describe('Uuid', () => {
 
     expect(uuid.toHex()).toEqual(hexString);
   });
+
+  it('Validates a UUID string', () => {
+    expect(Uuid.isValid(uuidString)).toBeTruthy();
+  })
 });
