@@ -30,109 +30,9 @@ const { Uuid } = require('@actually_connor/uuid');
 const uuid = Uuid.uuid4();
 ```
 
-## API Summary
+## Documentation
 
-### getUuid()
-
-Returns the array of bytes of the UUID
-
-|           |                                          |
-| --------- | ---------------------------------------- |
-| _returns_ | `Uint8Array[16]`                         |
-| _throws_  | `TypeError` if `str` is not a valid UUID |
-
-Example:
-```javascript
-import { Uuid } from '@actually_connor/uuid';
-
-const uuid = Uuid.uuid4();
-const byteArray = uuid.getUuid();
-```
-
-### fromString(str)
-
-Convert a UUID string to array of bytes
-
-|           |                                          |
-| --------- | ---------------------------------------- |
-| `str`     | A valid UUID `String`                    |
-| _returns_ | `Uint8Array[16]`                         |
-| _throws_  | `TypeError` if `str` is not a valid UUID |
-
-Example:
-```javascript
-import { Uuid } from '@actually_connor/uuid';
-
-const uuid = Uuid.fromString('6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b');
-```
-
-### toString()
-
-Convert array of bytes to UUID string
-
-|                |                                                                              |
-| -------------- | ---------------------------------------------------------------------------- |
-| _returns_      | `String`                                                                     |
-| _throws_       | `TypeError` if a valid UUID string cannot be generated                       |
-
-Example:
-```javascript
-import { Uuid } from '@actually_connor/uuid';
-
-const uuid = Uuid.uuid4();
-uuid.toString(); // ⇨ '6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b'
-```
-
-### getHex
-
-Convert array of bytes to UUID hexadecimal string
-
-|                |                                                                              |
-| -------------- | ---------------------------------------------------------------------------- |
-| _returns_      | `String`                                                                     |
-| _throws_       | `TypeError` if a valid UUID string cannot be generated                       |
-
-Example:
-```javascript
-import { Uuid } from '@actually_connor/uuid';
-
-const uuid = Uuid.uuid4();
-uuid.getHex(); // ⇨ '6EC0BD7F11C043DA975E2A8AD9EBAE0B'
-```
-
-### fromBytes(str)
-
-Convert a UUID byte string to array of bytes
-
-|           |                                          |
-| --------- | ---------------------------------------- |
-| `str`     | A valid UUID byte string `String`
-| _returns_ | `Uint8Array[16]`                         |
-| _throws_  | `TypeError` if `str` is not a valid UUID |
-
-Example:
-```javascript
-import { Uuid } from '@actually_connor/uuid';
-
-const uuid = Uuid.fromString('acCäügF¥ÜsÃ?4');
-```
-
-### getBytes()
-
-Convert an array of bytes to a binary string representation of the UUID
-
-|                |                                                                              |
-| -------------- | ---------------------------------------------------------------------------- |
-| _returns_      | `String`                                                                     |
-| _throws_       | `TypeError` if a valid UUID string cannot be generated                       |
-
-Example:
-```javascript
-import { Uuid } from '@actually_connor/uuid';
-
-const uuid = Uuid.uuid4();
-uuid.getBytes(); // ⇨ 'acCäügF¥ÜsÃ?4'
-```
+[@actually_connor/uuid docs](https://uuid.connorsmyth.com/Uuid.html)
 
 ## Use in Database - MySQL
 
@@ -146,7 +46,7 @@ await this.model
 .insert()
 .into(Table)
 .values({
-  uuid: () => `UNHEX('${Uuid.uuid4().toHex()}')`,
+  uuid: () => `UNHEX('${Uuid.uuid4().getHex()}')`,
 })
 .execute();
 ```
