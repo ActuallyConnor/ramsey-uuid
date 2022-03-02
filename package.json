@@ -1,6 +1,6 @@
 {
   "name": "@actually_connor/uuid",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A JavaScript library that provides a 'ramsey/uuid'-like interface for the uuid package",
   "keywords": [
     "uuid",
