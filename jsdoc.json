@@ -1,0 +1,15 @@
+{
+  "source": {
+    "include": ["./build"]
+  },
+  "opts": {
+    "template": "./node_modules/docdash",
+    "destination": "./docs",
+    "readme": "./README.md"
+  },
+  "templates": {
+    "default": {
+      "includeDate": false
+    }
+  }
+}

@@ -14,4 +14,4 @@ rm -rf "$DOCS_DIR"
 mkdir "$DOCS_DIR"
 
 # Compile docs
-jsdoc -d docs "$BUILD_DIR" -t "$DOCDASH_DIR"
+jsdoc -c jsdoc.json
