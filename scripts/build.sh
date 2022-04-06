@@ -25,3 +25,5 @@ babel --env-name esmBrowser "$BUILD_DIR" --source-root src --out-dir "$DIST_DIR/
 
 # Transpile ESM versions of files for node
 babel --env-name esmNode "$BUILD_DIR" --source-root src --out-dir "$DIST_DIR/esm-node" --copy-files --quiet
+
+rm -rf "$BUILD_DIR"
