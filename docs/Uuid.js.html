@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Uuid.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Uuid.html">Uuid</a><ul class='methods'><li data-type='method'><a href="Uuid.html#.fromBytes">fromBytes</a></li><li data-type='method'><a href="Uuid.html#.fromString">fromString</a></li><li data-type='method'><a href="Uuid.html#.isValid">isValid</a></li><li data-type='method'><a href="Uuid.html#.uuid4">uuid4</a></li><li data-type='method'><a href="Uuid.html#compareTo">compareTo</a></li><li data-type='method'><a href="Uuid.html#equals">equals</a></li><li data-type='method'><a href="Uuid.html#getBytes">getBytes</a></li><li data-type='method'><a href="Uuid.html#getHex">getHex</a></li><li data-type='method'><a href="Uuid.html#getUuid">getUuid</a></li><li data-type='method'><a href="Uuid.html#toString">toString</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Uuid.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Uuid = void 0;
+
+const uuid_1 = require("uuid");
+
+const util_1 = require("./util");
+/**
+ * Uuid provides constants and static methods for working with and generating UUIDs
+ */
+
+
+class Uuid {
+  /**
+   * Creates a universally unique identifier (UUID) from an array of fields
+   *
+   * Unless you're making advanced use of this library to generate identifiers that deviate RFC 4122, you
+   * probably do not want to instantiate a UUID directly. Use the static methods, instead:
+   *
+   * import { Uuid } from '@actually_connor/uuid';
+   * Uuid.uuid4();
+   *
+   * @param {ArrayLike&lt;number>} uuid The Array-like collection of 16 values (starting from offset) between 0-255
+   */
+  constructor(uuid) {
+    this.uuid = uuid;
+  }
+  /**
+   * Returns the Array-like collection of 16 values (starting from offset) between 0-255
+   *
+   * @return {ArrayLike&lt;number>}
+   */
+
+
+  getUuid() {
+    return this.uuid;
+  }
+  /**
+   * Creates a UUID from the string standard representation
+   *
+   * @param {string} uuid A hexadecimal string
+   *
+   * @return {UuidInterface} A UuidInterface instance created from a hexadecimal string representation
+   */
+
+
+  static fromString(uuid) {
+    return new Uuid((0, uuid_1.parse)(uuid));
+  }
+  /**
+   * Returns the string standard representation of the UUID
+   *
+   * @return {string}
+   */
+
+
+  toString() {
+    return (0, uuid_1.stringify)(this.uuid);
+  }
+  /**
+   * Returns the hexadecimal representation of the UUID
+   *
+   * @return {string}
+   */
+
+
+  getHex() {
+    return (0, uuid_1.stringify)(this.uuid).replace(/-/g, '').toUpperCase();
+  }
+  /**
+   * Creates a UUID from a byte string
+   *
+   * @param {string} bytes A binary string
+   *
+   * @return {UuidInterface} A UuidInterface instance created from a binary string representation
+   */
+
+
+  static fromBytes(bytes) {
+    let result = '';
+
+    for (let i = 0; i &lt; bytes.length; i++) {
+      result += bytes.charCodeAt(i).toString(16);
+
+      switch (i) {
+        case 3:
+        case 5:
+        case 7:
+        case 9:
+          result += '-';
+          break;
+      }
+    }
+
+    return new Uuid((0, uuid_1.parse)(result));
+  }
+  /**
+   * Returns the binary string representation of the UUID
+   *
+   * @return {string}
+   */
+
+
+  getBytes() {
+    let bytes = '';
+
+    for (let i = 0; i &lt; this.uuid.length; i++) {
+      bytes += String.fromCharCode(this.uuid[i]);
+    }
+
+    return bytes.replace(' ', '');
+  }
+  /**
+   * Returns a version 4 (random) UUID
+   *
+   * @return {UuidInterface} A UuidInterface instance that represents a version 4 UUID
+   */
+
+
+  static uuid4() {
+    return new Uuid((0, uuid_1.parse)((0, uuid_1.v4)()));
+  }
+  /**
+   * Returns true if the provided string is a valid UUID
+   *
+   * @param {string} uuid A string to validate as a UUID
+   *
+   * @return {boolean}
+   */
+
+
+  static isValid(uuid) {
+    return (0, uuid_1.validate)(uuid);
+  }
+  /**
+   * Returns true if the UUID is equal to the provided object
+   *
+   * The result is true if and only if the argument is not null, is a UUID object, has the same variant, and contains
+   * the same value, bit for bit, as the UUID.
+   *
+   * @param {object|null} other An object to test for equality with this UUID
+   *
+   * @return {boolean} True if the other object is equal to this UUID
+   */
+
+
+  equals(other) {
+    if (!(other instanceof Uuid)) {
+      return false;
+    }
+
+    return this.compareTo(other) === 0;
+  }
+  /**
+   * Returns -1, 0, or 1 if the UUID is less than, equal to, or greater than the other UUID
+   *
+   * The first of two UUIDs is greater than the second if the most significant field in which the UUIDs differ
+   * is greater for the first UUID.
+   *
+   * * Q. What's the value of being able to sort UUIDs?
+   * * A. Use them as keys in a B-Tree or similar mapping.
+   * @param {UuidInterface} other The UUID to compare
+   *
+   * @return {number} -1, 0, or 1 if the UUID is less than, equal to, or greater than the other
+   */
+
+
+  compareTo(other) {
+    const compare = (0, util_1.strcmp)(this.toString(), other.toString());
+
+    if (compare &lt; 0) {
+      return -1;
+    }
+
+    if (compare > 0) {
+      return 1;
+    }
+
+    return 0;
+  }
+
+}
+
+exports.Uuid = Uuid;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
