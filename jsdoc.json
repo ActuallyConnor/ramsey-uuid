@@ -1,6 +1,6 @@
 {
   "source": {
-    "include": ["./build"]
+    "include": ["./dist"]
   },
   "opts": {
     "template": "./node_modules/docdash",
