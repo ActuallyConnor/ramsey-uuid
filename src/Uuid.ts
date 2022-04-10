@@ -1,6 +1,6 @@
 import { UuidInterface } from './UuidInterface';
 import { v4, parse, stringify, validate } from 'uuid';
-import { strcmp } from './util';
+import { fromBufferToString, strcmp } from './util';
 
 /**
  * Uuid provides constants and static methods for working with and generating UUIDs
@@ -107,6 +107,18 @@ export class Uuid implements UuidInterface
     }
 
     return bytes.replace(' ', '');
+  }
+
+  /**
+   * Creates a UUID from a buffer array
+   *
+   * @param {Buffer} buffer A Buffer array
+   *
+   * @return {UuidInterface}
+   */
+  public static fromBuffer (buffer: Buffer): UuidInterface
+  {
+    return new Uuid(parse(fromBufferToString(buffer)));
   }
 
   /**
