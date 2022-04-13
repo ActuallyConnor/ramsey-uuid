@@ -1,6 +1,6 @@
 import { Uuid } from '../src';
 import { v4, parse } from 'uuid';
-import { fromBufferToString, fromStringToBuffer } from '../src/util';
+import { fromStringToBuffer } from '../src/util';
 
 describe('Uuid', () => {
   const byteString = 'acCäügF¥ÜsÃ?4';
@@ -109,5 +109,13 @@ describe('Uuid', () => {
     const uuid = Uuid.fromBuffer(fromStringToBuffer(uuidString));
 
     expect(uuidString).toEqual(uuid.toString());
+  });
+
+  it('Tests converts from UUID to Buffer', () => {
+    const uuidString = '32379c07-fb1b-458d-b735-7e3436703a9c';
+    const buffer = fromStringToBuffer(uuidString);
+    const uuid = Uuid.fromString(uuidString);
+
+    expect(buffer).toEqual(uuid.getBuffer());
   });
 });
