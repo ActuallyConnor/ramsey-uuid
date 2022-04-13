@@ -15,4 +15,6 @@ export interface UuidInterface
   getHex (): string;
 
   getBytes (): string;
+
+  getBuffer (): Buffer;
 }
