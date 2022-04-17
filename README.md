@@ -42,19 +42,20 @@ When persisting the UUIDs you can `UNHEX` the hexadecimal representation of the 
 ### TypeORM
 ```javascript
 await this.model
-.createQueryBuilder()
-.insert()
-.into(Table)
-.values({
-  uuid: () => `UNHEX('${Uuid.uuid4().getHex()}')`,
-})
-.execute();
+  .createQueryBuilder()
+  .insert()
+  .into(Table)
+  .values({
+    uuid: Uuid.uuid4().getBuffer(),
+  })
+  .execute();
 ```
 
-### MySQL
-```sql
-INSERT INTO `ActivityDefinition` (`uuid`)
-VALUES('UNHEX("616343E4FC6746A598DC73C39C873F34")');
+```javascript
+await this.model
+  .createQueryBuilder()
+  .where('uuid = :uuid', { uuid: uuid.getBuffer() })
+  .getOne();
 ```
 
 ## Contributing
@@ -70,7 +71,7 @@ information.
 
 [uuid]: https://www.npmjs.com/package/uuid
 [rfc4122]: http://tools.ietf.org/html/rfc4122
-[conduct]: https://github.com/ramsey/uuid/blob/main/CODE_OF_CONDUCT.md
+[conduct]: https://github.com/ActuallyConnor/uuid/blob/main/CODE_OF_CONDUCT.md
 [ramseyuuid]: https://github.com/ramsey/uuid
 [npm]: https://www.npmjs.com/
 [contributing.md]: https://github.com/ActuallyConnor/uuid/blob/main/CONTRIBUTING.md

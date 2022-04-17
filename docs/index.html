@@ -89,17 +89,18 @@ const uuid = Uuid.uuid4();
 When persisting the UUIDs you can <code>UNHEX</code> the hexadecimal representation of the UUID.</p>
 <h3>TypeORM</h3>
 <pre class="prettyprint source lang-javascript"><code>await this.model
-.createQueryBuilder()
-.insert()
-.into(Table)
-.values({
-  uuid: () => `UNHEX('${Uuid.uuid4().getHex()}')`,
-})
-.execute();
+  .createQueryBuilder()
+  .insert()
+  .into(Table)
+  .values({
+    uuid: Uuid.uuid4().getBuffer(),
+  })
+  .execute();
 </code></pre>
-<h3>MySQL</h3>
-<pre class="prettyprint source lang-sql"><code>INSERT INTO `ActivityDefinition` (`uuid`)
-VALUES('UNHEX(&quot;616343E4FC6746A598DC73C39C873F34&quot;)');
+<pre class="prettyprint source lang-javascript"><code>await this.model
+  .createQueryBuilder()
+  .where('uuid = :uuid', { uuid: uuid.getBuffer() })
+  .getOne();
 </code></pre>
 <h2>Contributing</h2>
 <p>Contributions are welcome! To contribute, please familiarize yourself with
