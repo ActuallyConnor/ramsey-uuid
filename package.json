@@ -1,6 +1,6 @@
 {
   "name": "@actually_connor/uuid",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "description": "A JavaScript library that provides a 'ramsey/uuid'-like interface for the uuid package",
   "keywords": [
     "uuid",
@@ -42,22 +42,22 @@
   },
   "license": "MIT",
   "dependencies": {
-    "uuid": "^8.3.2"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.18.6",
-    "@types/jest": "^28.1.4",
-    "@types/node": "^18.0.3",
+    "@babel/cli": "^7.19.3",
+    "@types/jest": "^28.1.8",
+    "@types/node": "^18.11.9",
     "@types/uuid": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
     "docdash": "^1.2.0",
-    "eslint": "^8.19.0",
+    "eslint": "^8.26.0",
     "eslint-plugin-import": "^2.26.0",
     "husky": "^8.0.1",
-    "jest": "^28.1.2",
-    "ts-jest": "^28.0.5",
-    "ts-node": "^10.8.2"
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.8",
+    "ts-node": "^10.9.1"
   },
   "bugs": {
     "url": "https://github.com/ActuallyConnor/uuid/issues"
